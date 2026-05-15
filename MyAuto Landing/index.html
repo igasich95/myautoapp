@@ -3,14 +3,127 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="MyAuto — лендинг" />
-    <title>MyAuto</title>
+    <meta
+      name="description"
+      content="Мой авто — учёт пробега и расходов на iOS"
+    />
+    <title>Мой авто</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="assets/favicon-16.png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Rubik:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <main>
-      <h1>MyAuto</h1>
-      <p>Лендинг в разработке.</p>
-    </main>
+    <div class="page">
+      <header class="site-header">
+        <a class="brand" href="index.html" aria-label="На главную">
+          <div class="brand__icon">
+            <img src="assets/app-icon.png" alt="" width="48" height="48" />
+          </div>
+          <div class="brand__text">
+            <p class="brand__title">Мой авто</p>
+            <p class="brand__tagline">Учет пробега и расходов</p>
+          </div>
+        </a>
+      </header>
+
+      <main class="hero">
+        <div class="hero-slide">
+          <!-- Десктоп: 3 слайда в окне, стрелки, автопрокрутка -->
+          <div
+            class="hero-carousel hero-carousel--desktop"
+            data-carousel
+            aria-roledescription="carousel"
+            aria-label="Скриншоты приложения"
+          >
+            <button
+              type="button"
+              class="hero-carousel__arrow hero-carousel__arrow--prev"
+              aria-label="Предыдущий слайд"
+            >
+              <span class="hero-carousel__arrow-icon" aria-hidden="true"></span>
+            </button>
+            <div class="hero-carousel__viewport">
+              <div class="hero-carousel__track" data-carousel-track></div>
+            </div>
+            <button
+              type="button"
+              class="hero-carousel__arrow hero-carousel__arrow--next"
+              aria-label="Следующий слайд"
+            >
+              <span class="hero-carousel__arrow-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <!-- Мобила: горизонтальный скролл -->
+          <div class="hero-slider hero-slider--mobile" tabindex="0" aria-label="Скриншоты приложения">
+            <div class="hero-slider__track">
+              <div class="hero-slider__item">
+                <img
+                  src="assets/slides/img01.png"
+                  alt="Удобно добавлять"
+                  loading="eager"
+                  draggable="false"
+                />
+              </div>
+              <div class="hero-slider__item">
+                <img
+                  src="assets/slides/img02.png"
+                  alt="И изменять заметки"
+                  loading="lazy"
+                  draggable="false"
+                />
+              </div>
+              <div class="hero-slider__item">
+                <img
+                  src="assets/slides/img03.png"
+                  alt="Учитывайте не только ТО"
+                  loading="lazy"
+                  draggable="false"
+                />
+              </div>
+              <div class="hero-slider__item">
+                <img src="assets/slides/img04.png" alt="" loading="lazy" draggable="false" />
+              </div>
+              <div class="hero-slider__item">
+                <img src="assets/slides/img05.png" alt="" loading="lazy" draggable="false" />
+              </div>
+              <div class="hero-slider__item">
+                <img src="assets/slides/img06.png" alt="" loading="lazy" draggable="false" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cta">
+          <a class="cta__store" href="#" aria-label="Скачать в App Store">
+            <img
+              class="cta__store-icon"
+              src="assets/apple-icon.svg"
+              alt=""
+              width="18"
+              height="22"
+            />
+            <span class="cta__store-text">
+              <span class="cta__store-prompt">Download on the</span>
+              <span class="cta__store-name">App Store</span>
+            </span>
+          </a>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <nav class="site-footer__nav" aria-label="Юридическая информация">
+          <a class="site-footer__link" href="privacy.html">Политика конфеденциальности</a>
+          <a class="site-footer__link" href="terms.html">Пользовательское соглашение</a>
+        </nav>
+      </footer>
+    </div>
+    <script src="js/main.js" defer></script>
   </body>
 </html>

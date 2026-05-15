@@ -8,6 +8,9 @@
       content="Мой авто — учёт пробега и расходов на iOS"
     />
     <title>Мой авто</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="assets/favicon-16.png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,7 +22,7 @@
   <body>
     <div class="page">
       <header class="site-header">
-        <div class="brand">
+        <a class="brand" href="index.html" aria-label="На главную">
           <div class="brand__icon">
             <img src="assets/app-icon.png" alt="" width="48" height="48" />
           </div>
@@ -27,12 +30,39 @@
             <p class="brand__title">Мой авто</p>
             <p class="brand__tagline">Учет пробега и расходов</p>
           </div>
-        </div>
+        </a>
       </header>
 
       <main class="hero">
         <div class="hero-slide">
-          <div class="hero-slider" tabindex="0" aria-label="Скриншоты приложения">
+          <!-- Десктоп: 3 слайда в окне, стрелки, автопрокрутка -->
+          <div
+            class="hero-carousel hero-carousel--desktop"
+            data-carousel
+            aria-roledescription="carousel"
+            aria-label="Скриншоты приложения"
+          >
+            <button
+              type="button"
+              class="hero-carousel__arrow hero-carousel__arrow--prev"
+              aria-label="Предыдущий слайд"
+            >
+              <span class="hero-carousel__arrow-icon" aria-hidden="true"></span>
+            </button>
+            <div class="hero-carousel__viewport">
+              <div class="hero-carousel__track" data-carousel-track></div>
+            </div>
+            <button
+              type="button"
+              class="hero-carousel__arrow hero-carousel__arrow--next"
+              aria-label="Следующий слайд"
+            >
+              <span class="hero-carousel__arrow-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <!-- Мобила: горизонтальный скролл -->
+          <div class="hero-slider hero-slider--mobile" tabindex="0" aria-label="Скриншоты приложения">
             <div class="hero-slider__track">
               <div class="hero-slider__item">
                 <img
@@ -95,5 +125,6 @@
       </footer>
     </div>
     <script src="js/main.js" defer></script>
+    <script src="js/home-links.js" defer></script>
   </body>
 </html>

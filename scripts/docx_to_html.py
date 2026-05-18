@@ -30,17 +30,6 @@ SHELL_HEAD = """<!DOCTYPE html>
     <link rel="stylesheet" href="css/document.css" />
   </head>
   <body class="doc-page">
-    <header class="doc-header">
-      <a class="doc-header__brand brand" href="index.html" aria-label="На главную">
-        <div class="brand__icon">
-          <img src="assets/app-icon.png" alt="" width="48" height="48" />
-        </div>
-        <div class="brand__text">
-          <p class="brand__title">Мой авто</p>
-          <p class="brand__tagline">Учет пробега и расходов</p>
-        </div>
-      </a>
-    </header>
     <main class="doc-content">
       <article class="doc-article">
 """
@@ -48,7 +37,6 @@ SHELL_HEAD = """<!DOCTYPE html>
 SHELL_TAIL = """
       </article>
     </main>
-    <script src="js/home-links.js" defer></script>
   </body>
 </html>
 """

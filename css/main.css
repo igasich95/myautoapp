@@ -304,15 +304,19 @@ a.brand:focus-visible {
   padding: 0 var(--page-padding-x);
 }
 
+/* App Store — макет 623:267 */
 .cta__store {
   display: inline-flex;
   align-items: center;
-  gap: 5.814px;
-  padding: 5.814px 8.14px;
+  gap: 6px;
+  padding: 6px 8px;
   border-radius: 12px;
   background: #ffffff;
   color: #000000;
   flex-shrink: 0;
+  width: max-content;
+  max-width: none;
+  white-space: nowrap;
 }
 
 .cta__store-icon {
@@ -325,21 +329,24 @@ a.brand:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  flex-shrink: 0;
+  white-space: nowrap;
+  line-height: 1;
 }
 
 .cta__store-prompt {
   font-family: Rubik, Inter, sans-serif;
-  font-size: 8.44px;
+  font-size: 8.435px;
   font-weight: 500;
   line-height: normal;
-  margin-bottom: -2.791px;
+  margin-bottom: -3px;
 }
 
 .cta__store-name {
   font-family: Rubik, Inter, sans-serif;
-  font-size: 17.88px;
+  font-size: 17.878px;
   font-weight: 500;
-  letter-spacing: -1.2516px;
+  letter-spacing: -1.2514px;
   line-height: normal;
 }
 

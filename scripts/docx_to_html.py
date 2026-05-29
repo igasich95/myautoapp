@@ -24,46 +24,19 @@ SHELL_HEAD = """<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Rubik:wght@500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/document.css" />
   </head>
   <body class="doc-page">
-    <header class="doc-header">
-      <a class="doc-header__brand brand" href="index.html" aria-label="На главную">
-        <div class="brand__icon">
-          <img src="assets/app-icon.png" alt="" width="48" height="48" />
-        </div>
-        <div class="brand__text">
-          <p class="brand__title">Мой авто</p>
-          <p class="brand__tagline">Учет пробега и расходов</p>
-        </div>
-      </a>
-      <a class="cta__store doc-header__store" href="#" aria-label="Скачать в App Store">
-        <img class="cta__store-icon" src="assets/apple-icon.svg" alt="" width="18" height="22" />
-        <span class="cta__store-text">
-          <span class="cta__store-prompt">Download on the</span>
-          <span class="cta__store-name">App Store</span>
-        </span>
-      </a>
-    </header>
     <main class="doc-content">
-      <a class="doc-back" href="index.html">← На главную</a>
       <article class="doc-article">
 """
 
 SHELL_TAIL = """
       </article>
     </main>
-    <a class="cta__store doc-floating-store" href="#" aria-label="Скачать в App Store">
-      <img class="cta__store-icon" src="assets/apple-icon.svg" alt="" width="18" height="22" />
-      <span class="cta__store-text">
-        <span class="cta__store-prompt">Download on the</span>
-        <span class="cta__store-name">App Store</span>
-      </span>
-    </a>
-    <script src="js/home-links.js" defer></script>
   </body>
 </html>
 """

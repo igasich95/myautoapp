@@ -11,6 +11,10 @@
   --page-padding-x: 24px;
   --doc-gap: 24px;
   --doc-content-padding-x-desktop: min(400px, max(24px, calc((100vw - 640px) / 2)));
+  --switch-bg: #27272c;
+  --switch-active: #ffffff;
+  --switch-active-text: #000000;
+  --switch-text: #ffffff;
 }
 
 html {
@@ -45,6 +49,43 @@ a {
 
 .doc-content {
   padding: 24px var(--page-padding-x) 48px;
+}
+
+.doc-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 4px;
+  border-radius: 36px;
+  background: var(--switch-bg);
+}
+
+.language-switch__option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 28px;
+  padding: 6px 12px;
+  border-radius: 36px;
+  color: var(--switch-text);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.108px;
+  white-space: nowrap;
+}
+
+.language-switch__option[aria-current="true"] {
+  background: var(--switch-active);
+  color: var(--switch-active-text);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
 }
 
 .doc-article {
@@ -102,5 +143,9 @@ a {
 @media (min-width: 768px) {
   .doc-content {
     padding: 64px var(--doc-content-padding-x-desktop) 64px;
+  }
+
+  .doc-toolbar {
+    margin-bottom: 32px;
   }
 }

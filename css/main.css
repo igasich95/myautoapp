@@ -86,15 +86,21 @@ a.brand:focus-visible {
   height: 48px;
   border-radius: 11.881px;
   overflow: hidden;
-  box-shadow:
-    inset 0 0 2.376px rgba(255, 255, 255, 0.1),
-    inset 0 0 0.475px rgba(255, 255, 255, 0.4);
 }
 
 .brand__icon img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.brand__icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 0.5px solid #232323;
+  border-radius: inherit;
+  pointer-events: none;
 }
 
 .brand__text {

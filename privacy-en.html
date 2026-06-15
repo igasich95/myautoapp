@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Personal data processing policy for the My Auto app" />
-    <title>Personal Data Processing Policy - My Auto</title>
+    <meta name="description" content="Privacy Policy for the My Auto app" />
+    <title>Privacy Policy - My Auto</title>
     <link rel="alternate" hreflang="ru" href="privacy.html" />
     <link rel="alternate" hreflang="en" href="privacy-en.html" />
     <link rel="icon" type="image/png" href="assets/favicon.png" sizes="32x32" />
@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/document.css" />
+    <link rel="stylesheet" href="css/document.css?v=20260615-2" />
   </head>
   <body class="doc-page">
     <main class="doc-content">
@@ -28,65 +28,109 @@
       </nav>
       <article class="doc-article">
         <h1>Privacy Policy for “My Auto”</h1>
-        <p class="doc-lead">Effective date: 29 May 2026</p>
+        <p class="doc-lead">Effective date: 15 June 2026</p>
         <p>Developer / data controller: Igor Zotov (“Developer”, “we”, “us”). Privacy contact: Myautoapp.iOS@yandex.ru.</p>
         <h2>1. Scope</h2>
         <p>This Privacy Policy applies to all users of the “My Auto” mobile application (the “App”), regardless of their country of residence, unless applicable local law provides otherwise.</p>
         <p>If the laws of your country provide additional rights regarding personal data, those rights remain available to you regardless of this Privacy Policy.</p>
         <h2>2. Privacy summary</h2>
-        <p>The App is designed to help users keep records about vehicles, mileage, expenses, maintenance, fuel fill-ups, and related notes.</p>
-        <p>In the current version, the App stores user records locally on the user’s device. The Developer does not receive, store, or view the data that the user enters into the App.</p>
-        <p>In the current version, the App does not use advertising SDKs, marketing trackers, or third-party analytics.</p>
+        <p>The App is designed to help users keep records about vehicles, mileage, expenses, maintenance, fuel fill-ups or charging sessions, and related notes.</p>
+        <p>The App’s main user records are stored locally on the user’s device. The Developer does not receive, store, or view the vehicle records, receipts, photos, notes, mileage, expenses, fuel or charging records that the user enters into the App.</p>
+        <p>The App uses Firebase Analytics / Google Analytics for Firebase to collect limited technical, aggregated, and pseudonymous analytics about App usage. This helps the Developer understand how the App is used, improve the interface, detect product issues, and evaluate features such as OCR, import/export, statistics, paywall screens, and purchases.</p>
+        <p>The App does not use Firebase Auth, Firestore, Realtime Database, Remote Config, Crashlytics, AdMob, Google Ads, IDFA/AdSupport, advertising SDKs, or marketing trackers. The App does not request App Tracking Transparency permission.</p>
         <p>The App does not sell users’ personal data and does not use it for behavioural advertising or tracking across third-party apps and websites.</p>
         <h2>3. Data the user may enter into the App</h2>
-        <p>The user may choose to add vehicle-related data to the App, including vehicle name, vehicle photo, fuel type, mileage, expense records, maintenance records, fuel records, custom categories, photos of receipts, service documents or other documents, and text recognized from receipts through OCR.</p>
+        <p>The user may choose to add vehicle-related data to the App, including vehicle name, vehicle photo, fuel type, mileage, expense records, maintenance records, fuel or charging records, custom categories, photos of receipts, service documents or other documents, and text recognized from receipts through OCR.</p>
         <p>The content of these records is controlled by the user. Depending on what the user enters or attaches, these records may contain personal information, such as photos, document numbers, addresses, vehicle registration numbers, or other details.</p>
         <h2>4. Data received by the Developer</h2>
-        <p>In the current version, the Developer does not receive access to the data stored by the user inside the App, including vehicle records, mileage, expenses, fuel records, photos, or recognized receipt text.</p>
-        <p>The Developer may receive personal data only if the user voluntarily contacts the Developer, for example by email. In that case, the Developer may process the user’s email address, name, message content, and any technical information the user chooses to provide for support purposes.</p>
-        <p>If the user makes a purchase or subscribes through the App Store, the payment is processed by Apple. The Developer does not receive or store the user’s payment card details. The App may use Apple-provided purchase or subscription status information to unlock paid functionality.</p>
+        <p>The Developer does not receive access to the data stored by the user inside the App, including vehicle records, mileage, expenses, fuel or charging records, photos, documents, custom category names, comments, notes, or recognized receipt text.</p>
+        <p>The Developer may receive analytics reports through Firebase Analytics / Google Analytics for Firebase. These reports may include technical and pseudonymous usage data, such as an app instance identifier, automatically collected app events, and custom events described in this Privacy Policy. These analytics events are designed not to include the user’s local vehicle records or the contents of user files.</p>
+        <p>The Developer may also receive personal data if the user voluntarily contacts the Developer, for example by email. In that case, the Developer may process the user’s email address, name, message content, and any technical information the user chooses to provide for support purposes.</p>
+        <p>If the user makes a purchase or subscribes through the App Store, the payment is processed by Apple. The Developer does not receive or store the user’s payment card details. The App may use Apple-provided purchase or subscription status information to unlock paid functionality and may send basic purchase-related analytics events to Firebase Analytics as described below.</p>
         <h2>5. Local storage and backups</h2>
         <p>The App’s main data is stored locally on the user’s device.</p>
-        <p>The user may export or import data, for example through a JSON file. The user decides where exported files are stored and with whom they are shared.</p>
+        <p>The user may export or import data, for example through a JSON file or PDF report. The user decides where exported files are stored and with whom they are shared.</p>
         <p>If iOS backups, iCloud, or other Apple system features are enabled on the user’s device, App data may be included in those backups depending on the user’s device settings and Apple’s rules. The Developer does not control Apple backups and does not have access to them.</p>
         <h2>6. Camera, photos, and OCR</h2>
         <p>The App may request access to the camera or photo library only for features chosen by the user, such as attaching a vehicle photo, service document, receipt, other document, or recognizing receipt data.</p>
-        <p>In the current version, receipt recognition is performed locally on the device. Photos and recognized text are not uploaded to the Developer’s servers.</p>
+        <p>In the current version, receipt recognition is performed locally on the device. Photos and recognized text are not uploaded to the Developer’s servers or to Firebase Analytics.</p>
         <p>The user can manage camera and photo access in iOS settings.</p>
-        <h2>7. Purposes and lawful bases</h2>
-        <p>For users in the European Economic Area and the United Kingdom, the Developer acts as a controller only for the data that the Developer actually receives, such as support emails or subscription status information.</p>
-        <p>Data is used for the following purposes: providing App functionality; displaying and storing user records locally on the device; responding to support requests; confirming purchase or subscription status; and complying with applicable legal requirements.</p>
-        <p>Depending on the situation, the lawful basis may be performance of a contract with the user, legitimate interests in supporting and protecting the App, the user’s consent, or compliance with legal obligations.</p>
-        <h2>8. Sharing data with third parties</h2>
+        <h2>7. Firebase Analytics / Google Analytics for Firebase</h2>
+        <p>The App uses Firebase Analytics / Google Analytics for Firebase only for product analytics. Firebase Analytics may automatically collect technical and pseudonymous analytics data, including:</p>
+        <ul>
+          <li>a unique app installation identifier, such as an app instance ID;</li>
+          <li>number of users and sessions;</li>
+          <li>session duration;</li>
+          <li>first opens, app opens, and app updates;</li>
+          <li>device model, operating system, App version, and related technical information;</li>
+          <li>device language and locale;</li>
+          <li>approximate geography, such as country or region, derived from technical data such as IP address;</li>
+          <li>basic information about in-app purchases or subscriptions if available through Google Analytics / Firebase.</li>
+        </ul>
+        <p>Approximate geography is not GPS location and is not the user’s precise address.</p>
+        <p>The App may manually send Firebase Analytics events about actions inside the App, including:</p>
+        <ul>
+          <li>completing onboarding;</li>
+          <li>adding a vehicle or switching between vehicles;</li>
+          <li>adding an expense, maintenance record, fuel record, or charging record;</li>
+          <li>starting receipt OCR and whether OCR succeeded or failed;</li>
+          <li>attaching a photo to a record;</li>
+          <li>opening statistics or changing a chart type;</li>
+          <li>successful JSON import/export or PDF export;</li>
+          <li>opening a paywall, starting a purchase, successful purchase, monthly or yearly subscription purchase, purchase error, and restore purchases action.</li>
+        </ul>
+        <p>The App sends only general, non-personal parameters with these events, such as fuel type (petrol, diesel, or EV), selected App region, input method (manual or OCR), whether a photo is attached, record type, category type (default or custom), currency, chart type, paywall source, OCR result, and the number of maintenance items in a maintenance record.</p>
+        <p>The App does not send the following data to Firebase Analytics:</p>
+        <ul>
+          <li>VIN;</li>
+          <li>vehicle registration number or license plate;</li>
+          <li>vehicle name;</li>
+          <li>photos of receipts, vehicles, or documents;</li>
+          <li>contents of PDF or JSON files;</li>
+          <li>user comments, personal notes, or custom category names;</li>
+          <li>recognized OCR text or full receipt text;</li>
+          <li>precise addresses;</li>
+          <li>exact expense descriptions;</li>
+          <li>expense amounts, mileage, fuel volume, charging amounts, or other detailed vehicle records.</li>
+        </ul>
+        <h2>8. Purposes and lawful bases</h2>
+        <p>For users in the European Economic Area and the United Kingdom, the Developer acts as a controller only for the data that the Developer actually receives or can access, such as support emails, subscription status information, and analytics data available in Firebase Analytics / Google Analytics for Firebase.</p>
+        <p>Data is used for the following purposes: providing App functionality; displaying and storing user records locally on the device; responding to support requests; confirming purchase or subscription status; understanding App usage; improving App design and functionality; measuring feature usage; detecting product issues; evaluating OCR, import/export, paywall, and purchase flows; and complying with applicable legal requirements.</p>
+        <p>Depending on the situation, the lawful basis may be performance of a contract with the user, legitimate interests in supporting, protecting, and improving the App, the user’s consent where required by law, or compliance with legal obligations.</p>
+        <h2>9. Sharing data with third parties</h2>
         <p>The Developer does not share the user’s local App records with third parties because the Developer does not receive access to those records.</p>
+        <p>Analytics data is processed by Google through Firebase Analytics / Google Analytics for Firebase. Google’s processing of analytics data is governed by Google’s and Firebase’s applicable terms and policies.</p>
         <p>Purchases and subscriptions are processed by Apple through the App Store. The user’s relationship with Apple is governed by Apple’s terms and policies.</p>
         <p>If the user contacts the Developer by email, the message may be processed by email service providers used to deliver and store email.</p>
-        <p>In the current version, the App does not use third-party advertising networks, marketing analytics, or tracking SDKs.</p>
-        <h2>9. International data transfers</h2>
-        <p>Because the App’s main data is stored locally on the device, the Developer does not transfer that data internationally.</p>
-        <p>If the user contacts support by email or makes a purchase through the App Store, relevant data may be processed by Apple, email providers, or other infrastructure providers in different countries according to their own policies and applicable law.</p>
-        <h2>10. Retention and deletion</h2>
+        <p>The App does not use third-party advertising networks, AdMob, Google Ads, or SDKs for tracking users across third-party apps and websites.</p>
+        <h2>10. International data transfers</h2>
+        <p>Because the App’s main user records are stored locally on the device, the Developer does not transfer those local records internationally.</p>
+        <p>Analytics data processed through Firebase Analytics / Google Analytics for Firebase may be processed by Google in different countries according to Google’s terms, policies, and applicable law.</p>
+        <p>If the user contacts support by email or makes a purchase through the App Store, relevant data may be processed by Apple, email providers, Google, or other infrastructure providers in different countries according to their own policies and applicable law.</p>
+        <h2>11. Retention and deletion</h2>
         <p>Local data remains on the user’s device until the user deletes individual records, deletes the App’s data, or deletes the App from the device.</p>
         <p>The Developer cannot remotely delete or modify the user’s local data because the Developer does not have access to it.</p>
+        <p>Firebase Analytics / Google Analytics data is retained according to the retention settings of the relevant Google Analytics property and Google’s applicable policies. The actual retention period should be checked in the Google Analytics property settings.</p>
         <p>Support messages may be retained for as long as necessary to respond to the user, resolve an issue, protect the Developer’s legitimate interests, or comply with legal obligations.</p>
         <p>Purchase and subscription information is stored and processed by Apple according to Apple’s rules.</p>
-        <h2>11. User rights</h2>
+        <h2>12. User rights</h2>
         <p>The user can view, change, export, or delete local records inside the App where the relevant feature is available, or delete the App from the device.</p>
         <p>Users in the European Economic Area and the United Kingdom may have the right to request access to personal data, rectification, erasure, restriction of processing, data portability, objection to processing, and withdrawal of consent where processing is based on consent.</p>
         <p>Because the Developer does not receive local App data, the Developer may be technically unable to provide a copy, correct, or delete data that exists only on the user’s device.</p>
         <p>To exercise data rights or ask privacy questions, contact us at Myautoapp.iOS@yandex.ru. Users may also have the right to lodge a complaint with their local data protection authority.</p>
-        <h2>12. Children</h2>
+        <h2>13. Children</h2>
         <p>The App is not intended for children under 13. In countries where a higher age of consent is required for processing children’s data, the App is not intended to be used by children without the consent of a parent or legal guardian.</p>
         <p>The Developer does not knowingly collect personal data from children. If you believe that a child has provided personal data to the Developer, please contact us at Myautoapp.iOS@yandex.ru.</p>
-        <h2>13. Security</h2>
+        <h2>14. Security</h2>
         <p>The Developer takes reasonable steps to design the App with local data storage and data minimization in mind.</p>
         <p>The security of local data also depends on the user’s device, iOS settings, device passcode, backups, and the user’s own actions.</p>
         <p>Users are encouraged to protect their devices with a passcode, Face ID, or Touch ID and to be careful when sharing exported files or photos of documents with third parties.</p>
-        <h2>14. Changes to this Privacy Policy</h2>
+        <h2>15. Changes to this Privacy Policy</h2>
         <p>The Developer may update this Privacy Policy when App features, technologies, App Store requirements, or applicable laws change.</p>
         <p>The current version of the Privacy Policy will be published on the page listed in the App Store and/or inside the App. The effective date is shown at the beginning of the document.</p>
-        <h2>15. Contact</h2>
+        <h2>16. Contact</h2>
         <p>For privacy questions, data processing questions, or user rights requests, contact the Developer by email: Myautoapp.iOS@yandex.ru.</p>
+
       </article>
     </main>
   </body>

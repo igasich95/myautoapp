@@ -78,7 +78,7 @@ a {
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.108px;
+  letter-spacing: 0;
   white-space: nowrap;
 }
 
@@ -93,6 +93,7 @@ a {
   flex-direction: column;
   gap: var(--doc-gap);
   max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .doc-article h1 {
@@ -100,7 +101,7 @@ a {
   font-size: 24px;
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.108px;
+  letter-spacing: 0;
 }
 
 .doc-article h2 {
@@ -108,7 +109,7 @@ a {
   font-size: 20px;
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.108px;
+  letter-spacing: 0;
 }
 
 .doc-article p {
@@ -116,7 +117,7 @@ a {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: -0.108px;
+  letter-spacing: 0;
 }
 
 .doc-lead {
@@ -129,7 +130,7 @@ a {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: -0.108px;
+  letter-spacing: 0;
 }
 
 .doc-article li + li {

@@ -1,130 +1,111 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Мой авто — учёт пробега и расходов на iOS"
+      content="My auto — mileage and expense tracker for iOS"
     />
-    <title>Мой авто</title>
+    <title>My auto</title>
     <link rel="icon" type="image/png" href="assets/favicon.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="assets/favicon-16.png" sizes="16x16" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Rubik:wght@500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Rubik:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/main.css?v=20260615-stroke" />
+    <link rel="stylesheet" href="css/main.css?v=20260728-mobile2" />
   </head>
   <body>
     <div class="page">
       <header class="site-header">
-        <a class="brand" href="index.html" aria-label="На главную">
+        <!-- Brand: desktop only -->
+        <a class="brand" href="index.html" aria-label="Home">
           <div class="brand__icon">
-            <img src="assets/app-icon.png" alt="" width="48" height="48" />
+            <img src="assets/app-icon.png" alt="" width="64" height="64" />
           </div>
           <div class="brand__text">
-            <p class="brand__title">Мой авто</p>
-            <p class="brand__tagline">Учет пробега и расходов</p>
+            <p class="brand__title">My auto</p>
+            <p class="brand__tagline">Expense tracker</p>
           </div>
+        </a>
+
+        <!-- App Store: desktop = header right, mobile = top center -->
+        <a class="cta__store cta__store--header" href="#" aria-label="Download on the App Store">
+          <img
+            class="cta__store-icon"
+            src="assets/apple-icon.svg"
+            alt=""
+            width="18"
+            height="22"
+          />
+          <span class="cta__store-text">
+            <span class="cta__store-prompt">Download on the</span>
+            <span class="cta__store-name">App Store</span>
+          </span>
         </a>
       </header>
 
       <main class="hero">
-        <div class="hero-slide">
-          <!-- Десктоп: 3 слайда в окне, стрелки, автопрокрутка -->
-          <div
-            class="hero-carousel hero-carousel--desktop"
-            data-carousel
-            aria-roledescription="carousel"
-            aria-label="Скриншоты приложения"
-          >
-            <button
-              type="button"
-              class="hero-carousel__arrow hero-carousel__arrow--prev"
-              aria-label="Предыдущий слайд"
-            >
-              <span class="hero-carousel__arrow-icon" aria-hidden="true"></span>
-            </button>
-            <div class="hero-carousel__viewport">
-              <div class="hero-carousel__track" data-carousel-track></div>
-            </div>
-            <button
-              type="button"
-              class="hero-carousel__arrow hero-carousel__arrow--next"
-              aria-label="Следующий слайд"
-            >
-              <span class="hero-carousel__arrow-icon" aria-hidden="true"></span>
-            </button>
+        <!-- Single-photo crossfade slideshow: image -> text -> dots.
+             Auto every 3s; swipe on touch devices (same fade). -->
+        <div
+          class="slideshow"
+          data-slideshow
+          role="group"
+          aria-roledescription="carousel"
+          aria-label="App screenshots"
+        >
+          <div class="slideshow__stage">
+            <img
+              class="slideshow__photo is-active"
+              data-photo-a
+              src="assets/slides/img01.png"
+              alt="Track mileage and expenses"
+              draggable="false"
+              loading="eager"
+            />
+            <img
+              class="slideshow__photo"
+              data-photo-b
+              src=""
+              alt=""
+              draggable="false"
+              aria-hidden="true"
+            />
           </div>
 
-          <!-- Мобила: горизонтальный скролл -->
-          <div class="hero-slider hero-slider--mobile" tabindex="0" aria-label="Скриншоты приложения">
-            <div class="hero-slider__track">
-              <div class="hero-slider__item">
-                <img
-                  src="assets/slides/img01.png"
-                  alt="Удобно добавлять"
-                  loading="eager"
-                  draggable="false"
-                />
-              </div>
-              <div class="hero-slider__item">
-                <img
-                  src="assets/slides/img02.png"
-                  alt="И изменять заметки"
-                  loading="lazy"
-                  draggable="false"
-                />
-              </div>
-              <div class="hero-slider__item">
-                <img
-                  src="assets/slides/img03.png"
-                  alt="Учитывайте не только ТО"
-                  loading="lazy"
-                  draggable="false"
-                />
-              </div>
-              <div class="hero-slider__item">
-                <img src="assets/slides/img04.png" alt="" loading="lazy" draggable="false" />
-              </div>
-              <div class="hero-slider__item">
-                <img src="assets/slides/img05.png" alt="" loading="lazy" draggable="false" />
-              </div>
-              <div class="hero-slider__item">
-                <img src="assets/slides/img06.png" alt="" loading="lazy" draggable="false" />
-              </div>
-            </div>
+          <div class="slideshow__caption" aria-live="polite">
+            <p class="slideshow__caption-layer is-active" data-cap-a><span class="slideshow__caption-line">Track mileage</span><span class="slideshow__caption-line">and expenses</span></p>
+            <p class="slideshow__caption-layer" data-cap-b aria-hidden="true"></p>
           </div>
-        </div>
-        <div class="cta">
-          <a class="cta__store" href="#" aria-label="Скачать в App Store">
-            <img
-              class="cta__store-icon"
-              src="assets/apple-icon.svg"
-              alt=""
-              width="18"
-              height="22"
-            />
-            <span class="cta__store-text">
-              <span class="cta__store-prompt">Download on the</span>
-              <span class="cta__store-name">App Store</span>
-            </span>
-          </a>
+
+          <div class="slideshow__dots" role="tablist" aria-label="Choose slide">
+            <button class="slideshow__dot is-active" type="button" aria-label="Slide 1"></button>
+            <button class="slideshow__dot" type="button" aria-label="Slide 2"></button>
+            <button class="slideshow__dot" type="button" aria-label="Slide 3"></button>
+            <button class="slideshow__dot" type="button" aria-label="Slide 4"></button>
+            <button class="slideshow__dot" type="button" aria-label="Slide 5"></button>
+            <button class="slideshow__dot" type="button" aria-label="Slide 6"></button>
+          </div>
         </div>
       </main>
 
       <footer class="site-footer">
-        <nav class="site-footer__nav" aria-label="Юридическая информация">
-          <a class="site-footer__link" href="privacy.html">Политика конфеденциальности</a>
-          <a class="site-footer__link" href="terms.html">Пользовательское соглашение</a>
+        <!-- App icon: mobile only -->
+        <a class="site-footer__icon" href="index.html" aria-label="Home">
+          <img src="assets/app-icon.png" alt="" width="48" height="48" />
+        </a>
+        <nav class="site-footer__nav" aria-label="Legal">
+          <a class="site-footer__link" href="privacy-en.html">Privacy Policy</a>
+          <a class="site-footer__link" href="terms-en.html">Terms of Use</a>
         </nav>
       </footer>
     </div>
-    <script src="js/main.js" defer></script>
+    <script src="js/main.js?v=3" defer></script>
     <script src="js/home-links.js" defer></script>
   </body>
 </html>

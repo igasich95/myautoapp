@@ -1,21 +1,31 @@
 (function () {
-  const desktopQuery = window.matchMedia("(min-width: 768px)");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const canHover = window.matchMedia("(hover: hover)");
   const AUTO_MS = 3000;
-  const TRANSITION = "transform 0.5s cubic-bezier(0.42, 0, 0.58, 1)";
-  const GAP = 19;
-  const VIEW_W_PER_H = 968 / 600;
-  const COPIES = 3;
-  /** Старт: в окне слайды 6 — 1 — 2 (индексы ленты 5,6,7 при порядке 1…6 × копии) */
-  const P_BASE = 5;
+  const SWIPE_THRESHOLD = 40;
 
-  const DEFAULT_SLIDES = [
-    { src: "assets/slides/img01.png", alt: "Удобно добавлять", loading: "eager" },
-    { src: "assets/slides/img02.png", alt: "И изменять заметки", loading: "lazy" },
-    { src: "assets/slides/img03.png", alt: "Учитывайте не только ТО", loading: "lazy" },
-    { src: "assets/slides/img04.png", alt: "", loading: "lazy" },
-    { src: "assets/slides/img05.png", alt: "", loading: "lazy" },
-    { src: "assets/slides/img06.png", alt: "", loading: "lazy" },
+  // "\n" marks the explicit line break used in each caption (matches Figma).
+  const SLIDES = [
+    { src: "assets/slides/img01.png", caption: "Track mileage\nand expenses" },
+    { src: "assets/slides/img02.png", caption: "Compare costs\nover time" },
+    { src: "assets/slides/img03.png", caption: "Fuel tracking\nmade simple" },
+    { src: "assets/slides/img04.png", caption: "Plan maintenance\nahead" },
+    { src: "assets/slides/img05.png", caption: "Keep your\nmaintenance history" },
+    { src: "assets/slides/img06.png", caption: "Get timely\nreminders" },
   ];
+
+  function captionHTML(text) {
+    return text
+      .split("\n")
+      .map(function (line) {
+        return '<span class="slideshow__caption-line">' + line + "</span>";
+      })
+      .join("");
+  }
+
+  function captionText(text) {
+    return text.replace(/\n/g, " ");
+  }
 
   function protectImages(root) {
     if (!root) return;
@@ -30,279 +40,139 @@
     });
   }
 
-  const mobileSlider = document.querySelector(".hero-slider--mobile");
-  protectImages(mobileSlider);
+  const slideshow = document.querySelector("[data-slideshow]");
+  if (!slideshow) return;
 
-  if (mobileSlider) {
-    mobileSlider.addEventListener("dragstart", function (e) {
-      e.preventDefault();
-    });
-  }
+  const capA = slideshow.querySelector("[data-cap-a]");
+  const capB = slideshow.querySelector("[data-cap-b]");
+  const photoA = slideshow.querySelector("[data-photo-a]");
+  const photoB = slideshow.querySelector("[data-photo-b]");
+  const dots = Array.from(slideshow.querySelectorAll(".slideshow__dot"));
 
-  if (mobileSlider && !desktopQuery.matches) {
-    let isDragging = false;
-    let startX = 0;
-    let startScrollLeft = 0;
-    let moved = false;
+  if (!capA || !capB || !photoA || !photoB) return;
 
-    mobileSlider.addEventListener("mousedown", function (e) {
-      if (e.button !== 0) return;
-      e.preventDefault();
-      isDragging = true;
-      moved = false;
-      startX = e.pageX;
-      startScrollLeft = mobileSlider.scrollLeft;
-      mobileSlider.classList.add("is-dragging");
-      mobileSlider.style.scrollSnapType = "none";
-      mobileSlider.style.scrollBehavior = "auto";
-    });
+  protectImages(slideshow);
 
-    window.addEventListener("mousemove", function (e) {
-      if (!isDragging) return;
-      const delta = e.pageX - startX;
-      if (Math.abs(delta) > 3) moved = true;
-      e.preventDefault();
-      mobileSlider.scrollLeft = startScrollLeft - delta;
-    });
+  // Warm the cache so crossfades don't flash.
+  SLIDES.forEach(function (s) {
+    const im = new Image();
+    im.src = s.src;
+  });
 
-    function endDrag() {
-      if (!isDragging) return;
-      isDragging = false;
-      mobileSlider.classList.remove("is-dragging");
-      mobileSlider.style.scrollSnapType = "";
-      mobileSlider.style.scrollBehavior = "";
-    }
-
-    window.addEventListener("mouseup", endDrag);
-    mobileSlider.addEventListener("mouseleave", endDrag);
-
-    mobileSlider.addEventListener("click", function (e) {
-      if (moved) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    });
-  }
-
-  const carousel = document.querySelector("[data-carousel]");
-  const track = document.querySelector("[data-carousel-track]");
-  const btnPrev = document.querySelector(".hero-carousel__arrow--prev");
-  const btnNext = document.querySelector(".hero-carousel__arrow--next");
-
-  if (!carousel || !track) return;
-
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-  function collectSlides() {
-    if (mobileSlider) {
-      const els = mobileSlider.querySelectorAll(".hero-slider__item");
-      const out = Array.from(els).map(function (el) {
-        const img = el.querySelector("img");
-        return {
-          src: img ? img.getAttribute("src") : "",
-          alt: img ? img.getAttribute("alt") || "" : "",
-          loading: img ? img.getAttribute("loading") || "lazy" : "lazy",
-        };
-      });
-      if (out.length && out[0].src) return out;
-    }
-    return DEFAULT_SLIDES;
-  }
-
-  function buildDesktopTrack(slides) {
-    track.innerHTML = "";
-    const n = slides.length;
-    if (n === 0) return;
-
-    for (let c = 0; c < COPIES; c++) {
-      for (let i = 0; i < n; i++) {
-        const s = slides[i];
-        const wrap = document.createElement("div");
-        wrap.className = "hero-carousel__item";
-        const img = document.createElement("img");
-        img.src = s.src;
-        img.alt = s.alt;
-        img.loading = c === 0 && i === 0 ? "eager" : s.loading;
-        img.draggable = false;
-        wrap.appendChild(img);
-        track.appendChild(wrap);
-      }
-    }
-  }
-
-  let centerIndex = 0;
-  let p = P_BASE;
+  let index = 0;
+  let activeIsA = true;
   let timerId = null;
-  let items = [];
-  let slideCount = 6;
 
-  function syncP() {
-    p = P_BASE + centerIndex;
-  }
-
-  function applyTransform(animate) {
-    if (!items.length || p < 0 || p >= items.length) return;
-    const el = items[p];
-    if (!el) return;
-    const x = el.offsetLeft;
-    if (!animate || reducedMotion.matches) {
-      track.style.transition = "none";
-    } else {
-      track.style.transition = TRANSITION;
-    }
-    track.style.transform = "translate3d(" + -x + "px,0,0)";
-    if (!animate || reducedMotion.matches) {
-      void track.offsetHeight;
-      track.style.transition = TRANSITION;
-    }
-  }
-
-  function layoutCarouselViewport() {
-    const vp = document.querySelector(".hero-carousel__viewport");
-    if (!vp || !desktopQuery.matches) return;
-    const h = vp.clientHeight;
-    if (h <= 0) return;
-
-    let vpW = h * VIEW_W_PER_H;
-    const maxW = window.innerWidth - 48 * 2 - 32 * 2 - 40;
-    vpW = Math.max(200, Math.min(vpW, maxW));
-    vp.style.width = Math.round(vpW) + "px";
-
-    const slideW = (vpW - 2 * GAP) / 3;
-    items.forEach(function (el) {
-      el.style.flexShrink = "0";
-      el.style.flexBasis = slideW + "px";
-      el.style.width = slideW + "px";
+  function setDots(n) {
+    dots.forEach(function (d, i) {
+      d.classList.toggle("is-active", i === n);
+      d.setAttribute("aria-selected", i === n ? "true" : "false");
     });
-    applyTransform(false);
   }
 
-  function restartTimer() {
-    if (reducedMotion.matches) return;
-    if (timerId) clearInterval(timerId);
-    timerId = window.setInterval(goNext, AUTO_MS);
+  function goTo(n) {
+    const len = SLIDES.length;
+    n = ((n % len) + len) % len;
+    if (n === index) return;
+
+    const outCap = activeIsA ? capA : capB;
+    const inCap = activeIsA ? capB : capA;
+    const outPhoto = activeIsA ? photoA : photoB;
+    const inPhoto = activeIsA ? photoB : photoA;
+
+    inCap.innerHTML = captionHTML(SLIDES[n].caption);
+    inPhoto.src = SLIDES[n].src;
+    inPhoto.alt = captionText(SLIDES[n].caption);
+    inCap.setAttribute("aria-hidden", "false");
+    outCap.setAttribute("aria-hidden", "true");
+    inPhoto.setAttribute("aria-hidden", "false");
+    outPhoto.setAttribute("aria-hidden", "true");
+
+    // Force reflow so the freshly-set src starts from opacity:0 before fading in.
+    void inPhoto.offsetWidth;
+
+    inCap.classList.add("is-active");
+    inPhoto.classList.add("is-active");
+    outCap.classList.remove("is-active");
+    outPhoto.classList.remove("is-active");
+
+    activeIsA = !activeIsA;
+    index = n;
+    setDots(index);
   }
 
-  function goNext() {
-    if (centerIndex < slideCount - 1) {
-      centerIndex++;
-      syncP();
-      applyTransform(true);
-    } else {
-      centerIndex = 0;
-      p = P_BASE + slideCount;
-      if (reducedMotion.matches) {
-        p = P_BASE;
-        applyTransform(false);
-      } else {
-        applyTransform(true);
-        function onEnd(e) {
-          if (e.propertyName !== "transform") return;
-          track.removeEventListener("transitionend", onEnd);
-          p = P_BASE;
-          applyTransform(false);
-        }
-        track.addEventListener("transitionend", onEnd);
-      }
+  function next() {
+    goTo(index + 1);
+  }
+
+  function prev() {
+    goTo(index - 1);
+  }
+
+  function stopAuto() {
+    if (timerId) {
+      clearInterval(timerId);
+      timerId = null;
     }
   }
 
-  function goPrev() {
-    if (centerIndex > 0) {
-      centerIndex--;
-      syncP();
-      applyTransform(true);
-    } else {
-      centerIndex = slideCount - 1;
-      p = P_BASE + centerIndex;
-      applyTransform(false);
-    }
+  function startAuto() {
+    stopAuto();
+    if (reducedMotion.matches || document.hidden) return;
+    timerId = window.setInterval(next, AUTO_MS);
   }
 
-  function initCarousel() {
-    if (!desktopQuery.matches) {
-      if (timerId) {
-        clearInterval(timerId);
-        timerId = null;
-      }
-      return;
-    }
-
-    const slides = collectSlides();
-    slideCount = slides.length || 6;
-    buildDesktopTrack(slides);
-    protectImages(carousel);
-
-    items = Array.from(track.querySelectorAll(".hero-carousel__item"));
-    if (items.length === 0) return;
-
-    centerIndex = 0;
-    syncP();
-
-    window.requestAnimationFrame(function () {
-      layoutCarouselViewport();
+  dots.forEach(function (dot, i) {
+    dot.addEventListener("click", function () {
+      goTo(i);
+      startAuto(); // restart the timer after a manual jump
     });
-
-    if (timerId) clearInterval(timerId);
-    if (!reducedMotion.matches) {
-      timerId = window.setInterval(goNext, AUTO_MS);
-    }
-
-    if (btnNext) {
-      btnNext.onclick = function () {
-        goNext();
-        restartTimer();
-      };
-    }
-    if (btnPrev) {
-      btnPrev.onclick = function () {
-        goPrev();
-        restartTimer();
-      };
-    }
-  }
-
-  function onResize() {
-    if (!desktopQuery.matches) return;
-    items = Array.from(track.querySelectorAll(".hero-carousel__item"));
-    if (items.length) layoutCarouselViewport();
-  }
-
-  function boot() {
-    if (desktopQuery.matches) initCarousel();
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", boot);
-  } else {
-    boot();
-  }
-
-  desktopQuery.addEventListener("change", function () {
-    if (desktopQuery.matches) {
-      initCarousel();
-    } else {
-      if (timerId) {
-        clearInterval(timerId);
-        timerId = null;
-      }
-    }
-    onResize();
   });
 
-  window.addEventListener("resize", function () {
-    window.requestAnimationFrame(onResize);
-  });
-
-  window.addEventListener("load", function () {
-    window.requestAnimationFrame(onResize);
-  });
-
-  var heroSlide = document.querySelector(".hero-slide");
-  if (heroSlide && typeof ResizeObserver !== "undefined") {
-    var ro = new ResizeObserver(function () {
-      window.requestAnimationFrame(onResize);
-    });
-    ro.observe(heroSlide);
+  // Pause auto-advance while hovering (pointer devices only).
+  if (canHover.matches) {
+    slideshow.addEventListener("mouseenter", stopAuto);
+    slideshow.addEventListener("mouseleave", startAuto);
   }
+
+  // Swipe to change slides (touch + mouse drag) — same crossfade animation.
+  // touch-action: pan-y keeps vertical scrolling native; a horizontal drag
+  // past the threshold switches slides.
+  let startX = 0;
+  let startY = 0;
+  let swiping = false;
+
+  slideshow.addEventListener("pointerdown", function (e) {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    if (e.target.closest(".slideshow__dot")) return; // let dots handle taps
+    swiping = true;
+    startX = e.clientX;
+    startY = e.clientY;
+  });
+
+  window.addEventListener("pointerup", function (e) {
+    if (!swiping) return;
+    swiping = false;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      if (dx < 0) next();
+      else prev();
+      startAuto();
+    }
+  });
+
+  window.addEventListener("pointercancel", function () {
+    swiping = false;
+  });
+
+  // Pause when the tab is hidden.
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) stopAuto();
+    else startAuto();
+  });
+
+  reducedMotion.addEventListener("change", startAuto);
+
+  startAuto();
 })();

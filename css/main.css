@@ -26,11 +26,13 @@
   --blur-h: calc(100vw * 613 / 375);
   --blur-top: calc(100vw * -266 / 375);
   --blur-r: calc(100vw * 175 / 375);
-  /* Shadow group from Figma node 2735:26978 (phone silhouette), in vw @375 */
-  --photo-shadow: drop-shadow(1.227vw 2.08vw 2.667vw rgba(0, 0, 0, 0.2))
-    drop-shadow(4.907vw 8.373vw 4.827vw rgba(0, 0, 0, 0.17))
-    drop-shadow(10.987vw 18.773vw 6.533vw rgba(0, 0, 0, 0.1))
-    drop-shadow(19.573vw 33.387vw 6.667vw rgba(0, 0, 0, 0.03));
+  /* Phone shadow (was a 4-stack drop-shadow copied 1:1 from Figma). On real
+     high-DPI iOS the large blur/offset bounds made WebKit rasterize the whole
+     filtered <img> into a downscaled backing store, blurring the crisp
+     screenshot itself (looked fine in desktop inspector). Keeping the blur and
+     offset small + fixed-px holds the filter surface tight and renders sharp. */
+  --photo-shadow: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.22))
+    drop-shadow(0 12px 20px rgba(0, 0, 0, 0.13));
 }
 
 html {
@@ -401,11 +403,10 @@ a.brand:focus-visible {
     --blur-h: calc(100vw * 840 / 1440);
     --blur-top: calc(100vw * -493 / 1440);
     --blur-r: calc(100vw * 250 / 1440);
-    /* Shadow group from Figma node 2735:26955, in vw @1440 */
-    --photo-shadow: drop-shadow(0.399vw 0.677vw 0.868vw rgba(0, 0, 0, 0.2))
-      drop-shadow(1.597vw 2.726vw 1.571vw rgba(0, 0, 0, 0.17))
-      drop-shadow(3.576vw 6.111vw 2.127vw rgba(0, 0, 0, 0.1))
-      drop-shadow(6.372vw 10.868vw 2.17vw rgba(0, 0, 0, 0.03));
+    /* Compact fixed-px shadow — same iOS backing-store reason as mobile above,
+       which also bites retina laptops / tablets that get the desktop layout. */
+    --photo-shadow: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.22))
+      drop-shadow(0 18px 30px rgba(0, 0, 0, 0.12));
   }
 
   /* Header: brand left + App Store right */

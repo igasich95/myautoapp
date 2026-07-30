@@ -1,6 +1,5 @@
 (function () {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const canHover = window.matchMedia("(hover: hover)");
   const AUTO_MS = 3000;
   const SWIPE_THRESHOLD = 40;
 
@@ -62,6 +61,10 @@
   let index = 0;
   let activeIsA = true;
   let timerId = null;
+  // Auto-advance runs whenever the tab is visible, but shuts off for good the
+  // first time the visitor navigates by hand (dot or swipe) so it never yanks
+  // the slide out from under someone who's reading it.
+  let userPaused = false;
 
   function setDots(n) {
     dots.forEach(function (d, i) {
@@ -118,22 +121,22 @@
 
   function startAuto() {
     stopAuto();
-    if (reducedMotion.matches || document.hidden) return;
+    if (userPaused || reducedMotion.matches || document.hidden) return;
     timerId = window.setInterval(next, AUTO_MS);
+  }
+
+  // Manual navigation disables auto-advance for the rest of the visit.
+  function pauseAutoForGood() {
+    userPaused = true;
+    stopAuto();
   }
 
   dots.forEach(function (dot, i) {
     dot.addEventListener("click", function () {
       goTo(i);
-      startAuto(); // restart the timer after a manual jump
+      pauseAutoForGood(); // visitor took control — stop auto-advancing
     });
   });
-
-  // Pause auto-advance while hovering (pointer devices only).
-  if (canHover.matches) {
-    slideshow.addEventListener("mouseenter", stopAuto);
-    slideshow.addEventListener("mouseleave", startAuto);
-  }
 
   // Swipe to change slides (touch + mouse drag) — same crossfade animation.
   // touch-action: pan-y keeps vertical scrolling native; a horizontal drag
@@ -158,7 +161,7 @@
     if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy) * 1.2) {
       if (dx < 0) next();
       else prev();
-      startAuto();
+      pauseAutoForGood();
     }
   });
 

@@ -1,0 +1,18 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="canada">
+<g clip-path="url(#clip0_4475_131234)">
+<path id="Vector" d="M23 43C34.0457 43 43 34.0457 43 23C43 11.9543 34.0457 3 23 3C11.9543 3 3 11.9543 3 23C3 34.0457 11.9543 43 23 43Z" fill="#F0F0F0"/>
+<g id="Group">
+<path id="Vector_2" d="M43 23C43 15.0708 38.3855 8.21953 31.6956 4.98453V41.0154C38.3855 37.7805 43 30.9292 43 23V23Z" fill="#D80027"/>
+<path id="Vector_3" d="M3 23C3 30.9292 7.61445 37.7805 14.3044 41.0155V4.98453C7.61445 8.21953 3 15.0708 3 23Z" fill="#D80027"/>
+<path id="Vector_4" d="M26.4783 25.6087L29.9565 23.8695L28.2174 23V21.2609L24.7391 23L26.4783 19.5217H24.7391L23 16.913L21.2609 19.5217H19.5217L21.2609 23L17.7826 21.2609V23L16.0435 23.8695L19.5217 25.6087L18.6522 27.3478H22.1305V29.9565H23.8695V27.3478H27.3478L26.4783 25.6087Z" fill="#D80027"/>
+</g>
+</g>
+<rect x="1.5" y="1.5" width="43" height="43" rx="21.5" stroke="#1C1C1C" stroke-width="3"/>
+</g>
+<defs>
+<clipPath id="clip0_4475_131234">
+<rect x="3" y="3" width="40" height="40" rx="20" fill="white"/>
+</clipPath>
+</defs>
+</svg>

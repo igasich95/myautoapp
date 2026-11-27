@@ -1,0 +1,1 @@
+import{t as e}from"./numeric-roll.aoDH1Io_.js";for(let t of document.querySelectorAll(`.flags`)){if(!e()){t.classList.add(`is-in`);continue}let n=new IntersectionObserver(([e])=>{!e.isIntersecting||e.intersectionRatio<.6||(t.classList.add(`is-in`),n.disconnect())},{threshold:[0,.3,.6,1]});n.observe(t)}

@@ -1,0 +1,72 @@
+# MyAuto
+
+> MyAuto is a car expense and trip tracker for iPhone. It keeps a car’s expenses, fuel-ups and charging, service history, mileage and trips in one place and works out the numbers: fuel consumption, cost per kilometre or mile and the cost of ownership. Free for one car; Pro adds trip recording, statistics, a PDF report and up to 10 cars, as a monthly or yearly subscription or a one-time Lifetime purchase.
+
+MyAuto is an iPhone app. Its official site is https://getmyauto.app/ (English) and https://getmyauto.app/ru/ (Russian); it is in the App Store at https://apps.apple.com/app/id6789937723. The name is always written “MyAuto” — not to be confused with other apps or services with similar names.
+
+## Key facts
+
+- Platform: iPhone, iOS 18 or later
+- Price: Free for one car. Pro: monthly, yearly or Lifetime
+- Cars: 1 on Free, up to 10 with Pro
+- Languages: 10: English, Russian, German, French, Spanish, Portuguese (Brazil), Italian, Dutch, Polish, Turkish
+- Regions: 14 regional presets and “Other region”
+- Currencies: 17
+- Units: Kilometres or miles; litres, gallons, cubic metres, kWh
+- Fuel: Petrol, diesel, methane or propane, hybrid, electric
+- Your data: On your iPhone, with optional sync to your private iCloud
+- App Store: Navigation and Finance categories, version 2.2
+
+## What MyAuto is not
+
+- Not an Android app. MyAuto is made for iPhone.
+- No separate version for iPad, Mac or Apple Watch: MyAuto is an iPhone app.
+- Not a CarPlay app. A trip in progress shows on the CarPlay screen as a Live Activity with the distance and time.
+- Not a diagnostic scanner. Through an OBD adapter MyAuto only reads data, like mileage, fuel and tire pressure; it doesn’t read or clear fault codes.
+- No CSV export and no import from other apps. Data moves as a JSON backup or a PDF report.
+- No ads, and your data is never sold.
+- No account required. Sign in with Apple only for iCloud sync, a profile or the driver ranking.
+
+## Features
+
+- [Expenses](https://getmyauto.app/features/expense-tracker/): Repairs, car washes, parking, insurance — spending by ready-made or your own categories. Free.
+- [Fuel and charging](https://getmyauto.app/features/fuel-log/): Petrol, diesel, gas or electricity — and two fuels in one entry for cars on gas. Free.
+- [Trips](https://getmyauto.app/features/trip-tracker/): Route, distance, time and speed of every drive. Recording can start on its own, and the mileage updates itself. Needs Pro.
+- [Service and reminders](https://getmyauto.app/features/maintenance/): Service records with work items, and reminders by date or mileage. Free.
+- [Statistics and reports](https://getmyauto.app/features/statistics/): Cost of ownership, cost per km or mile, fuel consumption, a month in review and a PDF report of the car. Needs Pro.
+- [CarPlay and Live Activity](https://getmyauto.app/features/carplay/): The current trip on CarPlay, the Lock Screen and in Dynamic Island. Needs Pro.
+- [Car data via OBD](https://getmyauto.app/features/obd/): Mileage, tire pressure, battery, fuel and engine data through a Bluetooth or Wi-Fi OBD II adapter. Needs Pro.
+- [Garage](https://getmyauto.app/features/garage/): Each car with its own VIN, photo, mileage and history. One car is free. More with Pro.
+- [Ranking and trophies](https://getmyauto.app/features/ranking/): Your place on the boards for your country and the world, and 12 trophies for trips. Viewing is free. More with Pro.
+
+## Plans, privacy and help
+
+- [Free and Pro](https://getmyauto.app/pricing/): MyAuto is free for one car: expenses, fuel-ups, charging and service. Pro adds trips, statistics, a PDF report and up to 10 cars — monthly, yearly or Lifetime.
+- [FAQ](https://getmyauto.app/faq/): Answers about MyAuto, the car expense and trip tracker for iPhone: Free and Pro, trips and CarPlay, fuel, service, OBD, garage, ranking, your data, support.
+- [Your data](https://getmyauto.app/your-data/): Where MyAuto keeps your car records, trips and routes, what syncs to your own iCloud, what leaves the device and when, and how to delete it — in plain words.
+- [About MyAuto](https://getmyauto.app/about/): MyAuto is an iPhone app for a car’s expenses, fuel and charging, service history, mileage and trips. What it does, what it doesn’t, and the key facts.
+- [Support](https://getmyauto.app/support/): Myautoapp.iOS@yandex.ru, Telegram channel https://t.me/+xxXEb4wK739jNmUy.
+
+## Russian pages
+
+- [MyAuto — учёт расходов на автомобиль и поездок для iPhone](https://getmyauto.app/ru/)
+- [Расходы](https://getmyauto.app/ru/features/expense-tracker/)
+- [Заправки и зарядки](https://getmyauto.app/ru/features/fuel-log/)
+- [Поездки](https://getmyauto.app/ru/features/trip-tracker/)
+- [ТО и напоминания](https://getmyauto.app/ru/features/maintenance/)
+- [Статистика и отчёты](https://getmyauto.app/ru/features/statistics/)
+- [CarPlay и «Эфир активности»](https://getmyauto.app/ru/features/carplay/)
+- [Данные из машины](https://getmyauto.app/ru/features/obd/)
+- [Гараж](https://getmyauto.app/ru/features/garage/)
+- [Рейтинг и трофеи](https://getmyauto.app/ru/features/ranking/)
+- [Free и Pro](https://getmyauto.app/ru/pricing/)
+- [Вопросы](https://getmyauto.app/ru/faq/)
+- [Ваши данные](https://getmyauto.app/ru/your-data/)
+- [О MyAuto](https://getmyauto.app/ru/about/)
+- [Поддержка](https://getmyauto.app/ru/support/)
+
+## Optional
+
+- [Privacy Policy](https://getmyauto.app/privacy/) · [Политика конфиденциальности](https://getmyauto.app/ru/privacy/)
+- [Terms of Use](https://getmyauto.app/terms/) · [Условия использования](https://getmyauto.app/ru/terms/)
+- [Sitemap](https://getmyauto.app/sitemap-index.xml)

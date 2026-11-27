@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="poland">
+<g clip-path="url(#clip0_4542_136045)">
+<path id="Vector" d="M38 70C55.6731 70 70 55.6731 70 38C70 20.3269 55.6731 6 38 6C20.3269 6 6 20.3269 6 38C6 55.6731 20.3269 70 38 70Z" fill="#F0F0F0"/>
+<path id="Vector_2" d="M70 38C70 55.673 55.673 70 38 70C20.327 70 6 55.673 6 38" fill="#D80027"/>
+</g>
+<rect x="3" y="3" width="70" height="70" rx="35" stroke="#050507" stroke-width="6"/>
+</g>
+<defs>
+<clipPath id="clip0_4542_136045">
+<rect x="6" y="6" width="64" height="64" rx="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
